@@ -1,0 +1,13 @@
+# ADB binaries directory (downloaded automatically by download_adb.ps1)
+platform-tools/
+
+# Temporary and log files
+*.log
+*.tmp
+scan_mtp*.ps1
+check_oppo_details.ps1
+analyze_oppo_storage.ps1
+
+# Windows OS files
+thumbs.db
+desktop.ini
