@@ -124,12 +124,32 @@ android-cleaner/
 
 ---
 
+## 🗺️ Rencana Pengembangan & Status (Roadmap & Issue Status)
+
+Guna meningkatkan keamanan data dan performa pembersihan pada berbagai varian HP Android, proyek ini sedang mengevaluasi dan merencanakan beberapa pembaruan utama ([Lihat GitHub Issue #1](https://github.com/shiddiqeuy/android-cleaner/issues/1)):
+
+| Fitur / Evaluasi | Status | Keterangan |
+| :--- | :---: | :--- |
+| **Proteksi Folder `Private` & `.Shared` WhatsApp** | 🟡 *In Review* | Folder `Media/WhatsApp Video/Private` (dan `.Shared`) berisi media *View Once* & media privat. Akan dieksklusi dari penghapusan otomatis agar media tidak hilang. |
+| **Targeting Cache WA Resmi** | 🟡 *In Review* | Mengalihkan lokasi pembersihan cache WhatsApp ke path aman: `Android/data/com.whatsapp/cache`. |
+| **Fitur Dry-Run Mode (`-DryRun`)** | 📋 *Planned* | Opsi simulasi pratinjau untuk melihat daftar path yang akan dibersihkan & kalkulasi estimasi pembebasan memori tanpa melakukan penghapusan fisik. |
+| **Daftar Path Pengecualian (Skip List)** | 📋 *Planned* | Pengaturan daftar path yang di-skip secara default serta opsi bagi pengguna untuk menentukan folder pengecualian sendiri. |
+| **Peningkatan Pembersihan HP Non-Root** | 📋 *Planned* | Evaluasi alternatif perintah `pm trim-caches` yang sering kali bernilai 0 byte pada HP non-root tanpa hak akses system/root. |
+
+---
+
 ## ❓ FAQ (Pertanyaan yang Sering Diajukan)
 
 > [!IMPORTANT]
 > **Apakah foto & video penting di galeri saya akan terhapus?**
-> **TIDAK.** Script ini dirancang sangat aman. Script HANYA menghapus file duplikat otomatis di folder `Sent`, file cache sementara `Private`, folder tempat sampah yang sudah Anda hapus sebelumnya, dan file thumbnail temporary. Foto & video asli hasil kamera di Galeri Anda **100% AMAN**.
+> **TIDAK.** Script ini dirancang sangat aman. Script HANYA menghapus file duplikat otomatis di folder `Sent`, folder tempat sampah yang sudah Anda hapus sebelumnya (`.FileManagerRecycler`), dan file thumbnail temporary. Foto & video asli hasil kamera di Galeri Anda **100% AMAN**.
+
+> [!WARNING]
+> **Catatan Penting Mengenai Folder WhatsApp `Private` & Pembersihan Cache:**
+> - Folder `WhatsApp Video/Private` & `.Shared` berisi media *View Once* dan media privat yang diterima pengguna. Dalam pembaruan mendatang, folder ini di-skip secara otomatis demi keamanan data.
+> - Perintah `pm trim-caches` pada HP Android non-root mungkin mengembalikan **0 byte** karena membutuhkan hak akses sistem khusus. Cache aplikasi WhatsApp yang aman secara resmi berada pada path `Android/data/com.whatsapp/cache`.
 
 > [!TIP]
 > **Apakah aman digunakan di HP Android merk selain OPPO?**
 > **SANGAT AMAN.** Script ini kompatibel dengan seluruh perangkat Android seperti Samsung, Xiaomi, Redmi, POCO, Vivo, Realme, Infinix, Asus, Motorola, dll.
+

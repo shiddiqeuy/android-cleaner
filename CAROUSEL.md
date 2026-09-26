@@ -102,13 +102,22 @@ powershell -ExecutionPolicy Bypass -File .\scan_apps_and_whatsapp.ps1
 ```
 
 <!-- slide -->
-### 🛡️ Slide 6: Jaminan Keamanan & Kebijakan File
+### 🛡️ Slide 6: Jaminan Keamanan & Catatan Pembersihan
 
 > [!TIP]
 > **Apakah foto & video penting di galeri saya akan terhapus?**
-> **TIDAK.** Pembersihan HANYA menyasar file duplikat tersembunyi `Sent`, cache temporary `Private`, folder tempat sampah `.FileManagerRecycler`, dan file thumbnail `.thumbnails`. Seluruh foto & video asli hasil kamera di Galeri Anda **100% AMAN**.
+> **TIDAK.** Pembersihan HANYA menyasar file duplikat tersembunyi `Sent`, folder tempat sampah `.FileManagerRecycler`, dan file thumbnail `.thumbnails`. Foto & video asli hasil kamera di Galeri Anda **100% AMAN**.
 
-> [!NOTE]
-> **Kompatibilitas Perangkat:**
-> Kompatibel penuh dengan seluruh merk HP Android (OPPO, Samsung, Xiaomi, Redmi, POCO, Vivo, Realme, Infinix, Asus, dll).
+> [!WARNING]
+> **Privasi & Cache:**
+> Folder `WhatsApp Video/Private` & `.Shared` berisi media *View Once* dan media privat. Folder ini di-skip demi keamanan data. Cache WA resmi yang aman berada pada path `Android/data/com.whatsapp/cache`.
+
+<!-- slide -->
+### 🗺️ Slide 7: Rencana Pengembangan (Roadmap & Status Issue #1)
+
+- 🟡 **Proteksi Folder `Private` & `.Shared` WA**: Mengeksklusi folder media privat & View Once.
+- 🟡 **Targeting Cache WA Resmi**: Mengalihkan target cache ke `Android/data/com.whatsapp/cache`.
+- 📋 **Dry-Run Mode (`-DryRun`)**: Opsi pratinjau kalkulasi ukuran & daftar path tanpa hapus fisik.
+- 📋 **Daftar Path Pengecualian (Skip List)**: Pengaturan folder/path yang dilewati saat pembersihan.
+- 📋 **Optimasi HP Non-Root**: Penanganan alternatif untuk `pm trim-caches` di HP non-root.
 ````
